@@ -3,6 +3,9 @@ import { Button, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons'
+import Icon3 from 'react-native-vector-icons/Ionicons'
 
 function DetailsScreen() {
   return (
@@ -95,13 +98,39 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={{ headerShown: false }}>
-        <Tab.Screen name="Home" component={HomeStackScreen} />
-        <Tab.Screen name="Quests" component={QuestsStackScreen} />
-        <Tab.Screen name="Shop" component={SettingsStackScreen} />
-        <Tab.Screen name="Wardrobe" component={WardrobeStackScreen} />
-        <Tab.Screen name="Friends" component={FriendsStackScreen} />
-        <Tab.Screen name="Settings" component={SettingsStackScreen} />
+      <Tab.Navigator screenOptions={{
+        headerShown: false
+      }}>
+        <Tab.Screen name="Home" component={HomeStackScreen} options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon3 name="home-outline" color={'#533483'} size={size} />
+          )
+        }} />
+        <Tab.Screen name="Quests" component={QuestsStackScreen} options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="file-text-o" color={'#533483'} size={size} />
+          )
+        }} />
+        <Tab.Screen name="Shop" component={SettingsStackScreen} options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="building-o" color={'#533483'} size={size} />
+          )
+        }} />
+        <Tab.Screen name="Wardrobe" component={WardrobeStackScreen} options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon2 name="wardrobe-outline" color={'#533483'} size={size} />
+          )
+        }} />
+        <Tab.Screen name="Friends" component={FriendsStackScreen} options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon3 name="people-outline" color={'#533483'} size={size} />
+          )
+        }} />
+        <Tab.Screen name="Settings" component={SettingsStackScreen} options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon3 name="settings-outline" color={'#533483'} size={size} />
+          )
+        }} />
 
       </Tab.Navigator>
     </NavigationContainer>
