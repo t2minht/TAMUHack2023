@@ -26,12 +26,18 @@ const styles = StyleSheet.create({
         right: 0,
         alignItems: 'center',
         justifyContent: 'center',
+        width: '100%',
     },
     buttonContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: '#F17F7F',
         padding: 15,
+        width: '100%',
+        height: Platform.select({
+            ios: 100,
+            android: 70,
+        }),
     }
 });
 
