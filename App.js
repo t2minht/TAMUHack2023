@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Button, Text, View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -18,11 +18,13 @@ function DetailsScreen() {
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home screen</Text>
+
       {/* <Button
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
       /> */}
+      <Image source={require('./assets/male_sprite.png')} style={{ width: 450, height: 450 }} />
+      {/* <Image source={require('./assets/female_sprite1.png')} style={{ width: 250, height: 250 }} /> */}
     </View>
   );
 }
@@ -74,7 +76,7 @@ const HomeStack = createNativeStackNavigator();
 function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
-      <HomeStack.Screen name="Home" component={HomeScreen} />
+      <HomeStack.Screen name="HOME" component={HomeScreen} />
       {/* <HomeStack.Screen name="Details" component={DetailsScreen} /> */}
     </HomeStack.Navigator>
   );
@@ -85,42 +87,51 @@ const SettingsStack = createNativeStackNavigator();
 function SettingsStackScreen() {
   return (
     <SettingsStack.Navigator>
-      <SettingsStack.Screen name="Settings" component={SettingsScreen} />
+      <SettingsStack.Screen name="SETTINGS" component={SettingsScreen} />
       {/* <SettingsStack.Screen name="Details" component={DetailsScreen} /> */}
     </SettingsStack.Navigator>
   );
 }
 
+
+const QuestsStack = createNativeStackNavigator();
+
 function QuestsStackScreen() {
   return (
-    <SettingsStack.Navigator>
-      <SettingsStack.Screen name="Quests" component={QuestsScreen} />
+    <QuestsStack.Navigator>
+      <QuestsStack.Screen name="QUESTS" component={QuestsScreen} />
       {/* <SettingsStack.Screen name="Details" component={DetailsScreen} /> */}
-    </SettingsStack.Navigator>
+    </QuestsStack.Navigator>
   );
 }
+
+const ShopStack = createNativeStackNavigator();
 function ShopStackScreen() {
   return (
-    <SettingsStack.Navigator>
-      <SettingsStack.Screen name="Shop" component={ShopScreen} />
+    <ShopStack.Navigator>
+      <ShopStack.Screen name="SHOP" component={ShopScreen} />
       {/* <SettingsStack.Screen name="Details" component={DetailsScreen} /> */}
-    </SettingsStack.Navigator>
+    </ShopStack.Navigator>
   );
 }
+
+const WardrobeStack = createNativeStackNavigator();
 function WardrobeStackScreen() {
   return (
-    <SettingsStack.Navigator>
-      <SettingsStack.Screen name="Wardrobe" component={WardrobeScreen} />
+    <WardrobeStack.Navigator>
+      <WardrobeStack.Screen name="WARDROBE" component={WardrobeScreen} />
       {/* <SettingsStack.Screen name="Details" component={DetailsScreen} /> */}
-    </SettingsStack.Navigator>
+    </WardrobeStack.Navigator>
   );
 }
+
+const FriendsStack = createNativeStackNavigator();
 function FriendsStackScreen() {
   return (
-    <SettingsStack.Navigator>
-      <SettingsStack.Screen name="Friends" component={FriendsScreen} />
+    <FriendsStack.Navigator>
+      <FriendsStack.Screen name="FRIENDS" component={FriendsScreen} />
       {/* <SettingsStack.Screen name="Details" component={DetailsScreen} /> */}
-    </SettingsStack.Navigator>
+    </FriendsStack.Navigator>
   );
 }
 const Tab = createBottomTabNavigator();
