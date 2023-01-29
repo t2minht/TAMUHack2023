@@ -11,4 +11,4 @@ def test():
     db.db.collection.insert_one({"name": "John"})
     return "Connected to the data base!"
 if __name__ == '__main__':
-    app.run(port=8000)
+    app.run()
