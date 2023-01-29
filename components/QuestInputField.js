@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { KeyboardAvoidingView, StyleSheet, View, TextInput, TouchableOpacity, } from "react-native";
-import { MaterialIcons } from '@expo/vector-icons';
+import { KeyboardAvoidingView, StyleSheet, View, TextInput, TouchableOpacity, Keyboard } from "react-native";
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 export default QuestInputField = (props) => {
     const [quest, setQuest] = useState();
@@ -8,6 +9,8 @@ export default QuestInputField = (props) => {
     const handleAddQuest = (value) => {
         props.addQuest(value);
         setQuest(null);
+        Keyboard.dismiss();
+
     };
 
     return (
@@ -15,20 +18,23 @@ export default QuestInputField = (props) => {
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.container}
         >
-            <TextInput style={styles.inputField} value={quest} onChangeText={text => setQuest(text)} placeholder={'Write a quest'} placeholderTextColor={'#fff'} />
+            <TextInput style={styles.inputField} value={quest} onChangeText={text => setQuest(text)} placeholder={'Write your Quest!'} placeholderTextColor={'#FFF'} onSubmitEditing={() => handleAddQuest(quest)} />
             <TouchableOpacity onPress={() => handleAddQuest(quest)}>
                 <View style={styles.button}>
-                    <MaterialIcons name="keyboard-arrow-up" size={24} color="black" />
+                    <Icon name="arrow-up" size={24} color="#F55050" />
                 </View>
             </TouchableOpacity>
         </KeyboardAvoidingView>
     );
+
+
+
 }
 
 const styles = StyleSheet.create({
     container: {
         borderColor: '#fff',
-        backgroundColor: '#3E3364',
+        backgroundColor: '#F55050',
         borderWidth: 1,
         marginHorizontal: 20,
         borderRadius: 12,

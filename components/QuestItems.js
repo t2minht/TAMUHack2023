@@ -10,7 +10,6 @@ export default function QuestItems() {
     const addQuest = (quest) => {
         if (quest == null) return;
         setQuests([...quests, quest]);
-        Keyboard.dismiss();
     }
 
     const deleteQuest = (deleteIndex) => {
@@ -31,7 +30,10 @@ export default function QuestItems() {
                     })
                 }
             </ScrollView>
-            {/* <QuestInputField addQuest={addQuest} /> */}
+            <View style={styles.input}>
+                <QuestInputField addQuest={addQuest} />
+
+            </View>
         </View>
     );
 }
@@ -55,5 +57,10 @@ const styles = StyleSheet.create({
     },
     questContainer: {
         marginTop: 20,
+    },
+    input: {
+        position: 'relative',
+        bottom: 0,
+        width: 400
     }
 });

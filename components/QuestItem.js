@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Keyboard } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default QuestItem = (prop) => {
+export default QuestItem = (props) => {
     return (
         <View style={styles.container}>
             <View style={styles.indexContainer}>
@@ -11,7 +11,7 @@ export default QuestItem = (prop) => {
             <View style={styles.questContainer}>
                 <Text style={styles.quest}>{props.quest}</Text>
                 <TouchableOpacity onPress={() => props.deleteQuest()}>
-                    <MaterialIcons style={styles.delete} name="delete" size={18} color='#fff' />
+                    <MaterialIcons style={styles.delete} name="delete" size={18} color='#F55050' />
                 </TouchableOpacity>
             </View>
         </View>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         height: 50,
     },
     index: {
-        color: '#fff',
+        color: '#F55050',
         fontSize: 20,
     },
     questContainer: {
@@ -47,9 +47,9 @@ const styles = StyleSheet.create({
         minHeight: 50,
     },
     quest: {
-        color: '#fff',
+        color: '#F55050',
         width: '90%',
-        fontSize: 16,
+        fontSize: 24,
     },
     delete: {
         marginLeft: 10,
